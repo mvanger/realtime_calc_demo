@@ -47,8 +47,16 @@ get '/calc/subtract/:first/:second' do
 end
 
 get '/calc/divide/:first/:second' do
-  @first = params[:first].to_i
+  @first = params[:first].to_f
   @second = params[:second].to_i
   return (@first / @second).to_s
 end
+
+get '/oh_hai/:name' do
+  @name = params[:name]
+  erb :hai
+end
+
+
+
 
