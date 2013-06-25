@@ -72,7 +72,7 @@ get '/calc/:first/:operation/:second' do
   erb :calc
 end
 
-get '/calc' do
+get '/calc_form' do
   @first = params[:first].to_f
   # Valid operations: sum, difference, product, quotient
   @operation = params[:operation]
@@ -83,7 +83,7 @@ get '/calc' do
     when "product" then @first * @second
     when "quotient" then @first / @second
   end
-  erb :calc
+  erb :calc_form
 end
 
 
