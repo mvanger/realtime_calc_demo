@@ -69,7 +69,21 @@ get '/calc/:first/:operation/:second' do
     when "product" then @first * @second
     when "quotient" then @first / @second
   end
-  return @result.to_s
+  erb :calc
+end
+
+get '/calc' do
+  @first = params[:first].to_f
+  # Valid operations: sum, difference, product, quotient
+  @operation = params[:operation]
+  @second = params[:second].to_f
+  @result = case @operation
+    when "sum" then @first + @second
+    when "difference" then @first - @second
+    when "product" then @first * @second
+    when "quotient" then @first / @second
+  end
+  erb :calc
 end
 
 
